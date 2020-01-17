@@ -35,7 +35,6 @@ class Service {
 
       if (modelAux != null && model != null) {
         modelAux.image1 = model.image1;
-        modelAux.image2 = model.image2;
         modelAux.iniciatiiva = model.iniciatiiva;
         modelAux.heart = model.heart;
 

@@ -74,38 +74,6 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
                 ),
                 onTap: getImage1,
               ),
-              Container(
-                height: 50,
-                width: 50,
-                margin: const EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                ),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/sword.png'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              InkWell(
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundImage: _jogadorModel.image2 != null &&
-                          _jogadorModel.image2.isNotEmpty
-                      ? FileImage(File(_jogadorModel.image2))
-                      : null,
-                  child: _jogadorModel.image2 == null ||
-                          _jogadorModel.image2.isEmpty
-                      ? Icon(
-                          Icons.add_photo_alternate,
-                          color: Colors.blueGrey,
-                        )
-                      : SizedBox.shrink(),
-                  backgroundColor: Colors.grey.shade200,
-                ),
-                onTap: getImage2,
-              ),
             ],
           ),
           Padding(
@@ -281,15 +249,6 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
     if (image != null && image.path != null && image.path.isNotEmpty) {
       setState(() {
         _jogadorModel.image1 = image.path;
-      });
-    }
-  }
-
-  Future getImage2() async {
-    final image = await ImagePicker.pickImage(source: ImageSource.gallery);
-    if (image != null && image.path != null && image.path.isNotEmpty) {
-      setState(() {
-        _jogadorModel.image2 = image.path;
       });
     }
   }

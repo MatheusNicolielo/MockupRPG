@@ -56,4 +56,12 @@ class Service {
       _list.elementAt(0).jogadorAtual = true;
     } catch (e) {}
   }
+
+  static void mudarTurno() {
+    JogadorModel auxiliarJogador = _lista.elementAt(0);
+    try {
+      _lista.removeAt(0);
+      _lista.add(auxiliarJogador);
+    } catch (e) {}
+  }
 }

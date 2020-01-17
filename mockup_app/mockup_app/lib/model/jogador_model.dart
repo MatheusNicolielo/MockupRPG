@@ -5,7 +5,7 @@ class JogadorModel {
   int auxiliarVida;
   int iniciatiiva;
   int heart;
-  bool proximoJogador = false;
+  bool jogadorAtual = false;
 
   JogadorModel({
     this.id,
@@ -14,6 +14,6 @@ class JogadorModel {
     this.auxiliarVida,
     this.heart,
     this.iniciatiiva,
-    this.proximoJogador,
+    this.jogadorAtual,
   });
 }

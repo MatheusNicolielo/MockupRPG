@@ -16,32 +16,39 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Fila de Combate'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.arrow_forward),
+            onPressed: () {},
+          ),
+          // Icones canto direito
+        ],
       ),
       body: FutureBuilder<List<JogadorModel>>(
-          future: Service.getListaJogador(),
-          builder: (context, snapshot) {
-            if (snapshot.data != null && snapshot.data.isNotEmpty) {
-              return ListView.separated(
-                itemCount: snapshot.data.length,
-                separatorBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(
-                      left: 20,
-                      right: 20,
-                    ),
-                    child: Divider(
-                      color: Colors.grey.shade400,
-                    ),
-                  );
-                },
-                itemBuilder: (context, index) {
-                  return JogadorTile(snapshot.data.elementAt(index));
-                },
-              );
-            }
-
-            return SizedBox.shrink();
-          }),
+        future: Service.getListaJogador(),
+        builder: (context, snapshot) {
+          if (snapshot.data != null && snapshot.data.isNotEmpty) {
+            return ListView.separated(
+              itemCount: snapshot.data.length,
+              separatorBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    right: 20,
+                  ),
+                  child: Divider(
+                    color: Colors.grey.shade400,
+                  ),
+                );
+              },
+              itemBuilder: (context, index) {
+                return JogadorTile(snapshot.data.elementAt(index));
+              },
+            );
+          }
+          return SizedBox.shrink();
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: _onPressed,

@@ -72,7 +72,7 @@ class _JogadorTileState extends State<JogadorTile> {
           _buildContanerTile1(FontAwesomeIcons.skullCrossbones,
               widget._jogadorModel.iniciatiiva.toString(), Colors.black45),
           _buildContanerTile1(FontAwesomeIcons.check,
-              widget._jogadorModel.auxiliarVida.toString(), Colors.black45)
+              widget._jogadorModel.auxiliarVida.toString(), Colors.black45),
         ],
       ),
     );

@@ -3,7 +3,7 @@ class JogadorModel {
   String image1;
   String nome;
   int auxiliarVida;
-  int iniciatiiva;
+  int iniciativa;
   int heart;
   bool jogadorAtual = false;
 
@@ -13,7 +13,7 @@ class JogadorModel {
     this.nome,
     this.auxiliarVida,
     this.heart,
-    this.iniciatiiva,
+    this.iniciativa,
     this.jogadorAtual,
   });
 }

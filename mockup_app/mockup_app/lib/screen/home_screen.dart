@@ -18,6 +18,14 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Fila de Combate'),
         actions: <Widget>[
           IconButton(
+            icon: Icon(Icons.cached),
+            onPressed: () {
+              setState(() {
+                Service.ordenarLista();
+              });
+            },
+          ),
+          IconButton(
             icon: Icon(Icons.arrow_forward),
             onPressed: () {
               setState(() {

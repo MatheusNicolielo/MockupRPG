@@ -11,7 +11,6 @@ class Service {
     try {
       model.id = DateTime.now().millisecondsSinceEpoch;
       _lista.add(model);
-      ordenarLista(_lista);
     } catch (e) {
       return false;
     }
@@ -38,22 +37,21 @@ class Service {
         modelAux.image1 = model.image1;
         modelAux.iniciatiiva = model.iniciatiiva;
         modelAux.heart = model.heart;
-        ordenarLista(_lista);
         return true;
       }
     } catch (e) {}
     return false;
   }
 
-  static void ordenarLista(List<JogadorModel> _list) {
+  static void ordenarLista() {
     try {
-      _list.sort((b, a) => a.iniciatiiva.compareTo(b.iniciatiiva));
+      _lista.sort((b, a) => a.iniciatiiva.compareTo(b.iniciatiiva));
     } catch (e) {}
   }
 
-  static void setarJogadorAtual(List<JogadorModel> _list) {
+  static void setarJogadorAtual() {
     try {
-      _list.elementAt(0).jogadorAtual = true;
+      _lista.elementAt(0).jogadorAtual = true;
     } catch (e) {}
   }
 

@@ -35,8 +35,7 @@ class Service {
 
       if (modelAux != null && model != null) {
         modelAux.image1 = model.image1;
-        modelAux.iniciatiiva = model.iniciatiiva;
-        modelAux.heart = model.heart;
+        modelAux.iniciativa = model.iniciativa;
         return true;
       }
     } catch (e) {}
@@ -45,13 +44,7 @@ class Service {
 
   static void ordenarLista() {
     try {
-      _lista.sort((b, a) => a.iniciatiiva.compareTo(b.iniciatiiva));
-    } catch (e) {}
-  }
-
-  static void setarJogadorAtual() {
-    try {
-      _lista.elementAt(0).jogadorAtual = true;
+      _lista.sort((b, a) => a.iniciativa.compareTo(b.iniciativa));
     } catch (e) {}
   }
 

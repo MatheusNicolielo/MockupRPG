@@ -67,12 +67,8 @@ class _JogadorTileState extends State<JogadorTile> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          _buildContanerTile1(FontAwesomeIcons.solidHeart,
-              widget._jogadorModel.heart.toString(), Colors.black54),
           _buildContanerTile1(FontAwesomeIcons.skullCrossbones,
-              widget._jogadorModel.iniciatiiva.toString(), Colors.black45),
-          _buildContanerTile1(FontAwesomeIcons.check,
-              widget._jogadorModel.auxiliarVida.toString(), Colors.black45),
+              widget._jogadorModel.iniciativa.toString(), Colors.black45),
         ],
       ),
     );
@@ -88,116 +84,6 @@ class _JogadorTileState extends State<JogadorTile> {
           Text(
             widget._jogadorModel.nome,
             style: _textStyle(FontWeight.w500),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              InkWell(
-                child: Container(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  height: 35,
-                  width: 35,
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border: new Border.all(
-                      color: Colors.black,
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "-1",
-                      style: _textStyle(FontWeight.w500),
-                    ),
-                  ),
-                ),
-                onTap: _onDecrement,
-              ),
-              SizedBox(
-                width: 2,
-              ),
-              InkWell(
-                child: Container(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  height: 35,
-                  width: 38,
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border: new Border.all(
-                      color: Colors.black,
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "+1",
-                      style: _textStyle(FontWeight.w500),
-                    ),
-                  ),
-                ),
-                onTap: _onIncrement,
-              ),
-              SizedBox(
-                width: 2,
-              ),
-              InkWell(
-                child: Container(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  height: 35,
-                  width: 43,
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border: new Border.all(
-                      color: Colors.black,
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "-10",
-                      style: _textStyle(FontWeight.w500),
-                    ),
-                  ),
-                ),
-                onTap: _onDecrementDez,
-              ),
-              SizedBox(
-                width: 2,
-              ),
-              InkWell(
-                child: Container(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  height: 35,
-                  width: 46,
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    border: new Border.all(
-                      color: Colors.black,
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "+10",
-                      style: _textStyle(FontWeight.w500),
-                    ),
-                  ),
-                ),
-                onTap: _onIncrementDez,
-              ),
-              SizedBox(
-                width: 2,
-              ),
-              InkWell(
-                child: Container(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  height: 35,
-                  child: Center(
-                    child: Icon(
-                      Icons.check,
-                    ),
-                  ),
-                ),
-                onTap: _adicionarSubtrairVida,
-              ),
-            ],
           ),
         ],
       ),
@@ -233,32 +119,6 @@ class _JogadorTileState extends State<JogadorTile> {
     );
   }
 
-  void _onDecrement() {
-    setState(() {
-      widget._jogadorModel.auxiliarVida--;
-    });
-  }
-
-  void _onDecrementDez() {
-    setState(() {
-      widget._jogadorModel.auxiliarVida =
-          widget._jogadorModel.auxiliarVida - 10;
-    });
-  }
-
-  void _onIncrement() {
-    setState(() {
-      widget._jogadorModel.auxiliarVida++;
-    });
-  }
-
-  void _onIncrementDez() {
-    setState(() {
-      widget._jogadorModel.auxiliarVida =
-          widget._jogadorModel.auxiliarVida + 10;
-    });
-  }
-
   void _onTap() {
     Navigator.of(context).push(
       CupertinoPageRoute(builder: (context) {
@@ -269,13 +129,5 @@ class _JogadorTileState extends State<JogadorTile> {
 
   void _onSuccess() {
     setState(() {});
-  }
-
-  void _adicionarSubtrairVida() {
-    setState(() {
-      widget._jogadorModel.heart = widget._jogadorModel.heart +
-          int.parse(widget._jogadorModel.auxiliarVida.toString());
-      widget._jogadorModel.auxiliarVida = 0;
-    });
   }
 }

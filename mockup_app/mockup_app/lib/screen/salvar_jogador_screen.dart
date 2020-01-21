@@ -19,8 +19,7 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
   JogadorModel _jogadorModel;
 
   TextEditingController _ecNome;
-  TextEditingController _ecHeart;
-  TextEditingController _eciniciatiiva;
+  TextEditingController _eciniciativa;
 
   @override
   void initState() {
@@ -30,15 +29,13 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
       _jogadorModel = widget.jogadorModel;
 
       _ecNome = TextEditingController(text: _jogadorModel.nome);
-      _ecHeart = TextEditingController(text: _jogadorModel.heart.toString());
-      _eciniciatiiva =
-          TextEditingController(text: _jogadorModel.iniciatiiva.toString());
+      _eciniciativa =
+          TextEditingController(text: _jogadorModel.iniciativa.toString());
     } else {
       _jogadorModel = JogadorModel();
 
       _ecNome = TextEditingController();
-      _ecHeart = TextEditingController();
-      _eciniciatiiva = TextEditingController();
+      _eciniciativa = TextEditingController();
     }
   }
 
@@ -82,78 +79,6 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 Container(
-                  child: Text(
-                    'Nome: ',
-                    style: TextStyle(
-                      color: Colors.black87,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  width: 50,
-                ),
-                SizedBox(
-                  width: 16,
-                ),
-                Expanded(
-                  child: TextField(
-                    controller: _ecNome,
-                    textCapitalization: TextCapitalization.sentences,
-                    decoration: InputDecoration(
-                      hintText: 'Informe o nome',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(
-                          width: 1,
-                          style: BorderStyle.none,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  child: Icon(
-                    FontAwesomeIcons.solidHeart,
-                    size: 20,
-                    color: Colors.black87,
-                  ),
-                  width: 50,
-                ),
-                SizedBox(
-                  width: 16,
-                ),
-                Expanded(
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    controller: _ecHeart,
-                    decoration: InputDecoration(
-                      hintText: 'Informe ...',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide(
-                          width: 1,
-                          style: BorderStyle.none,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Container(
                   child: Icon(
                     FontAwesomeIcons.skullCrossbones,
                     size: 20,
@@ -166,7 +91,7 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
                 ),
                 Expanded(
                   child: TextField(
-                    controller: _eciniciatiiva,
+                    controller: _eciniciativa,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: 'Informe ...',
@@ -230,9 +155,7 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
 
   void _salvar() {
     _jogadorModel.nome = _ecNome.text;
-    _jogadorModel.heart = int.parse(_ecHeart.text);
-    _jogadorModel.iniciatiiva = int.parse(_eciniciatiiva.text);
-    _jogadorModel.auxiliarVida = 0;
+    _jogadorModel.iniciativa = int.parse(_eciniciativa.text);
 
     if (widget.jogadorModel != null) {
       Service.attJogador(_jogadorModel);

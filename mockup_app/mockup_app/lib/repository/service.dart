@@ -35,7 +35,7 @@ class Service {
 
       if (modelAux != null && model != null) {
         modelAux.image1 = model.image1;
-        modelAux.iniciatiiva = model.iniciatiiva;
+        modelAux.iniciativa = model.iniciativa;
         modelAux.heart = model.heart;
         return true;
       }
@@ -45,7 +45,7 @@ class Service {
 
   static void ordenarLista() {
     try {
-      _lista.sort((b, a) => a.iniciatiiva.compareTo(b.iniciatiiva));
+      _lista.sort((b, a) => a.iniciativa.compareTo(b.iniciativa));
     } catch (e) {}
   }
 

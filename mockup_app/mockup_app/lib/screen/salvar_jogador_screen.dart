@@ -20,7 +20,7 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
 
   TextEditingController _ecNome;
   TextEditingController _ecHeart;
-  TextEditingController _eciniciatiiva;
+  TextEditingController _eciniciativa;
 
   @override
   void initState() {
@@ -31,14 +31,14 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
 
       _ecNome = TextEditingController(text: _jogadorModel.nome);
       _ecHeart = TextEditingController(text: _jogadorModel.heart.toString());
-      _eciniciatiiva =
-          TextEditingController(text: _jogadorModel.iniciatiiva.toString());
+      _eciniciativa =
+          TextEditingController(text: _jogadorModel.iniciativa.toString());
     } else {
       _jogadorModel = JogadorModel();
 
       _ecNome = TextEditingController();
       _ecHeart = TextEditingController();
-      _eciniciatiiva = TextEditingController();
+      _eciniciativa = TextEditingController();
     }
   }
 
@@ -166,7 +166,7 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
                 ),
                 Expanded(
                   child: TextField(
-                    controller: _eciniciatiiva,
+                    controller: _eciniciativa,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: 'Informe ...',
@@ -231,7 +231,7 @@ class _SalvarJogadorScreenState extends State<SalvarJogadorScreen> {
   void _salvar() {
     _jogadorModel.nome = _ecNome.text;
     _jogadorModel.heart = int.parse(_ecHeart.text);
-    _jogadorModel.iniciatiiva = int.parse(_eciniciatiiva.text);
+    _jogadorModel.iniciativa = int.parse(_eciniciativa.text);
     _jogadorModel.auxiliarVida = 0;
 
     if (widget.jogadorModel != null) {
